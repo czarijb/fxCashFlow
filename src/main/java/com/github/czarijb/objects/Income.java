@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "ASSETS")
+@Table(name = "Income")
 public class Income {
     private LongProperty id = new SimpleLongProperty();
     private StringProperty name = new SimpleStringProperty("");

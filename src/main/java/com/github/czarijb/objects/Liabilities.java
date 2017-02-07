@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "ASSETS")
+@Table(name = "Liabilities")
 public class Liabilities {
 
     private LongProperty id = new SimpleLongProperty();
