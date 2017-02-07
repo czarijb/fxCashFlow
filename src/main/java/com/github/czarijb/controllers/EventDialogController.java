@@ -21,12 +21,11 @@ import javafx.stage.Window;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by aleksandr on 04.02.17.
- */
+
 public class EventDialogController {
 
     private static final Logger log = LoggerFactory.getLogger(EventDialogController.class);
@@ -223,24 +222,32 @@ public class EventDialogController {
         liabilitiesPriceTextField.setEditable(true);
     }
 
-
-    private void createCategoryButtonAction(){
+    private void createButtonForAssets() {
         if (assetsBlock.isSelected() && checkAssetsTextFieldNotEmpty() && checkIntInAssetsTextField()){
             AssetsDAOImpl assetsDAO = DAOFactory.getInstance().getAssetsDao();
             assets = new Assets(assetsNameTextField.getText(), Integer.parseInt(assetsVolumeTextField.getText()),
                     Integer.parseInt(assetsPriceTextField.getText()));
             assetsDAO.addAssets(assets);
         }
+    }
+
+    private void createButtonForExpenses() {
         if (expensesBlock.isSelected() && checkExpensesTextFieldNotEmpty() && checkIntInExpensesTextField()){
             ExpensesDAOImpl expensesDAO = DAOFactory.getInstance().getExpensesDao();
             expenses = new Expenses(expensesNameTextField.getText(), Integer.parseInt(expensesPriceTextField.getText()));
             expensesDAO.addExpenses(expenses);
         }
+    }
+
+    private void createButtonForIncome() {
         if (incomeBlock.isSelected() && checkIncomeTextFieldNotEmpty() && checkIntInIncomeTextField()){
             IncomeDAOImpl incomeDAO = DAOFactory.getInstance().getIncomeDao();
             income = new Income(incomeNameTextField.getText(), Integer.parseInt(incomePriceTextField.getText()));
             incomeDAO.addIncome(income);
         }
+    }
+
+    private void createButtonForLiabilities() {
         if (liabilitiesBlock.isSelected() && checkLiabilitiesTextFieldNotEmpty() && checkIntInLiabilitiesTextField()){
             LiabilitiesDAOImpl liabilitiesDAO = DAOFactory.getInstance().getLiabilitiesDao();
             liabilities = new Liabilities(liabilitiesNameTextField.getText(), Integer.parseInt(liabilitiesPriceTextField.getText()));
@@ -248,8 +255,7 @@ public class EventDialogController {
         }
     }
 
-
-    private void updateCategoryButtonAction(){
+    private void updateButtonForAssets() {
         if (assetsBlock.isSelected() && checkAssetsTextFieldNotEmpty() && checkIntInAssetsTextField()){
             AssetsDAOImpl assetsDAO = DAOFactory.getInstance().getAssetsDao();
             for (Assets assets : assetsDAO.getAssetsList()){
@@ -258,6 +264,9 @@ public class EventDialogController {
             }
             assetsDAO.updateAssets(assets);
         }
+    }
+
+    private void updateButtonForExpenses() {
         if (expensesBlock.isSelected() && checkExpensesTextFieldNotEmpty() && checkIntInExpensesTextField()){
             ExpensesDAOImpl expensesDAO = DAOFactory.getInstance().getExpensesDao();
             for (Expenses expenses : expensesDAO.getExpensesList()){
@@ -267,6 +276,9 @@ public class EventDialogController {
             }
             expensesDAO.updateExpenses(expenses);
         }
+    }
+
+    private void updateButtonForIncome() {
         if (incomeBlock.isSelected() && checkIncomeTextFieldNotEmpty() && checkIntInIncomeTextField()){
             IncomeDAOImpl incomeDAO = DAOFactory.getInstance().getIncomeDao();
             for (Income income : incomeDAO.getIncomeList()){
@@ -276,6 +288,9 @@ public class EventDialogController {
             }
             incomeDAO.updateIncome(income);
         }
+    }
+
+    private void updateButtonForLiabilities() {
         if (liabilitiesBlock.isSelected() && checkLiabilitiesTextFieldNotEmpty() && checkIntInLiabilitiesTextField()){
             LiabilitiesDAOImpl liabilitiesDAO = DAOFactory.getInstance().getLiabilitiesDao();
             for (Liabilities liabilities : liabilitiesDAO.getLiabilitiesList()){
@@ -287,38 +302,46 @@ public class EventDialogController {
         }
     }
 
-
-    private void deleteCategoryButtonAction(){
+    private void deleteButtonForAssets() {
         if (assetsBlock.isSelected() && checkAssetsTextFieldNotEmpty() && checkIntInAssetsTextField()){
             AssetsDAOImpl assetsDAO = DAOFactory.getInstance().getAssetsDao();
             for (Assets assets : assetsDAO.getAssetsList()){
-                if (assets.getName() == assetsNameTextField.getText())
+                if (Objects.equals(assets.getName(), assetsNameTextField.getText()))
                     this.assets = assets;
             }
             assetsDAO.deleteAssets(assets);
         }
+    }
+
+    private void deleteButtonForExpenses() {
         if (expensesBlock.isSelected() && checkExpensesTextFieldNotEmpty() && checkIntInExpensesTextField()){
             ExpensesDAOImpl expensesDAO = DAOFactory.getInstance().getExpensesDao();
             for (Expenses expenses : expensesDAO.getExpensesList()){
-                if(expenses.getName() == expensesNameTextField.getText()){
+                if(Objects.equals(expenses.getName(), expensesNameTextField.getText())){
                     this.expenses = expenses;
                 }
             }
             expensesDAO.deleteExpenses(expenses);
         }
+    }
+
+    private void deleteButtonForIncome() {
         if (incomeBlock.isSelected() && checkIncomeTextFieldNotEmpty() && checkIntInIncomeTextField()){
             IncomeDAOImpl incomeDAO = DAOFactory.getInstance().getIncomeDao();
             for (Income income : incomeDAO.getIncomeList()){
-                if(income.getName() == incomeNameTextField.getText()){
+                if(Objects.equals(income.getName(), incomeNameTextField.getText())){
                     this.income = income;
                 }
             }
             incomeDAO.deleteIncome(income);
         }
+    }
+
+    private void deleteButtonForLiabilities() {
         if (liabilitiesBlock.isSelected() && checkLiabilitiesTextFieldNotEmpty() && checkIntInLiabilitiesTextField()){
             LiabilitiesDAOImpl liabilitiesDAO = DAOFactory.getInstance().getLiabilitiesDao();
             for (Liabilities liabilities : liabilitiesDAO.getLiabilitiesList()){
-                if(liabilities.getName() == liabilitiesNameTextField.getText()){
+                if(Objects.equals(liabilities.getName(), liabilitiesNameTextField.getText())){
                     this.liabilities = liabilities;
                 }
             }
@@ -338,17 +361,26 @@ public class EventDialogController {
 
         switch (clickedButton.getId()){
             case "createCategory" :
-                createCategoryButtonAction();
+                createButtonForAssets();
+                createButtonForExpenses();
+                createButtonForIncome();
+                createButtonForLiabilities();
                 actionClose(actionEvent);
                 break;
 
             case "updateCategory" :
-                updateCategoryButtonAction();
+                updateButtonForAssets();
+                updateButtonForExpenses();
+                updateButtonForIncome();
+                updateButtonForLiabilities();
                 actionClose(actionEvent);
                 break;
 
             case "deleteCategory" :
-                deleteCategoryButtonAction();
+                deleteButtonForAssets();
+                deleteButtonForExpenses();
+                deleteButtonForIncome();
+                deleteButtonForLiabilities();
                 actionClose(actionEvent);
                 break;
         }

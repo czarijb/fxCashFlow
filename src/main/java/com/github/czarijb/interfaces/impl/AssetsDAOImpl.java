@@ -1,19 +1,14 @@
 package com.github.czarijb.interfaces.impl;
 
-import com.github.czarijb.hibernate.utils.DAOFactory;
 import com.github.czarijb.interfaces.AssetsDAO;
 import com.github.czarijb.objects.Assets;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import jdk.nashorn.internal.runtime.regexp.JoniRegExp;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
-import java.util.List;
 
-/**
- * Created by aleksandr on 04.02.17.
- */
+
 public class AssetsDAOImpl implements AssetsDAO {
 
     private ObservableList<Assets> assetsList = FXCollections.observableArrayList();
@@ -63,9 +58,7 @@ public class AssetsDAOImpl implements AssetsDAO {
     }
 
     public void fillAssetsTestData(){
-        /*assetsList.add(new Assets("Квартира", 1, 1400000));
-        assetsList.add(new Assets("Акции ВТБ", 100, 31));
-        assetsList.add(new Assets("База отдыха", 1, 100000));*/
+
         try {
             session.beginTransaction();
             Criteria criteria = session.createCriteria(Assets.class);

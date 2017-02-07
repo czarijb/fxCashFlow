@@ -7,9 +7,7 @@ import com.github.czarijb.interfaces.impl.LiabilitiesDAOImpl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-/**
- * Created by aleksandr on 07.02.17.
- */
+
 public class DAOFactory {
     private static DAOFactory ourInstance = new DAOFactory();
 

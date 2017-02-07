@@ -7,9 +7,7 @@ import javafx.collections.ObservableList;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
-/**
- * Created by aleksandr on 04.02.17.
- */
+
 public class ExpensesDAOImpl implements ExpensesDAO {
 
     private ObservableList<Expenses> expensesList = FXCollections.observableArrayList();
@@ -59,8 +57,6 @@ public class ExpensesDAOImpl implements ExpensesDAO {
     }
 
     public void fillExpensesTestData(){
-        /*expensesList.add(new Expenses("кафе", 1000));
-        expensesList.add(new Expenses("спорт", 1000));*/
 
         try {
             session.beginTransaction();

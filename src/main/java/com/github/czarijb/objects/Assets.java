@@ -4,9 +4,7 @@ import javafx.beans.property.*;
 
 import javax.persistence.*;
 
-/**
- * Created by aleksandr on 04.02.17.
- */
+
 @Entity
 @Table(name = "ASSETS")
 public class Assets {
@@ -25,13 +23,6 @@ public class Assets {
         this.volume = new SimpleIntegerProperty(volume);
         this.price = new SimpleIntegerProperty(price);
         this.totalPrice = new SimpleIntegerProperty(volume * price);
-    }
-
-    public Assets(String name, int volume, int price, int totalPrice) {
-        this.name = new SimpleStringProperty(name);
-        this.volume = new SimpleIntegerProperty(volume);
-        this.price = new SimpleIntegerProperty(price);
-        this.totalPrice = new SimpleIntegerProperty(totalPrice);
     }
 
     @Id

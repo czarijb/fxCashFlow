@@ -7,9 +7,7 @@ import javafx.collections.ObservableList;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
-/**
- * Created by aleksandr on 04.02.17.
- */
+
 public class LiabilitiesDAOImpl implements LiabilitiesDAO {
     private ObservableList<Liabilities> liabilitiesList = FXCollections.observableArrayList();
 
@@ -60,8 +58,7 @@ public class LiabilitiesDAOImpl implements LiabilitiesDAO {
     }
 
     public void fillLiabilitiesTestData(){
-        /*liabilitiesList.add(new Liabilities("Кредитка ВТБ", 70000));
-        liabilitiesList.add(new Liabilities("Кредитка Тинькофф", 104000));*/
+
         try {
             session.beginTransaction();
             Criteria criteria = session.createCriteria(Liabilities.class);

@@ -4,9 +4,7 @@ import javafx.beans.property.*;
 
 import javax.persistence.*;
 
-/**
- * Created by aleksandr on 04.02.17.
- */
+
 @Entity
 @Table(name = "ASSETS")
 public class Income {

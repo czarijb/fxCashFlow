@@ -7,9 +7,7 @@ import javafx.collections.ObservableList;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
-/**
- * Created by aleksandr on 04.02.17.
- */
+
 public class IncomeDAOImpl implements IncomeDAO {
     private ObservableList<Income> incomeList = FXCollections.observableArrayList();
     private Session session;
@@ -59,8 +57,7 @@ public class IncomeDAOImpl implements IncomeDAO {
     }
 
     public void fillIncomeTestData() {
-        /*incomeList.add(new Income("Зарплата", 11500));
-        incomeList.add(new Income("Огонь", 30000));*/
+
         try {
             session.beginTransaction();
             Criteria criteria = session.createCriteria(Income.class);

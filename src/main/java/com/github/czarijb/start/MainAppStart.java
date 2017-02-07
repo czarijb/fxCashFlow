@@ -9,9 +9,7 @@ import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Created by aleksandr on 04.02.17.
- */
+
 public class MainAppStart extends Application {
 
     private static final Logger log = LoggerFactory.getLogger(MainAppStart.class);

@@ -10,11 +10,9 @@ import com.github.czarijb.objects.Assets;
 import com.github.czarijb.objects.Expenses;
 import com.github.czarijb.objects.Income;
 import com.github.czarijb.objects.Liabilities;
-import com.github.czarijb.start.MainAppStart;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,9 +30,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-/**
- * Created by aleksandr on 04.02.17.
- */
+
 public class MainWindowController {
 
     private static final Logger log = LoggerFactory.getLogger(MainWindowController.class);
@@ -82,27 +78,26 @@ public class MainWindowController {
     @FXML public void initialize(){
 
         assetsTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-
         assetsColumnId.setCellValueFactory(new PropertyValueFactory<Assets, Long>("id"));
         assetsColumnName.setCellValueFactory(new PropertyValueFactory<Assets, String>("name"));
         assetsColumnVolume.setCellValueFactory(new PropertyValueFactory<Assets, Integer>("volume"));
         assetsColumnPrice.setCellValueFactory(new PropertyValueFactory<Assets, Integer>("price"));
         assetsColumnTotalPrice.setCellValueFactory(new PropertyValueFactory<Assets, Integer>("totalPrice"));
 
-        expensesTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
+        expensesTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         expensesColumnId.setCellValueFactory(new PropertyValueFactory<Expenses, Long>("id"));
         expensesColumnName.setCellValueFactory(new PropertyValueFactory<Expenses, String>("name"));
         expensesColumnPrice.setCellValueFactory(new PropertyValueFactory<Expenses, Integer>("price"));
 
-        incomeTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
+        incomeTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         incomeColumnId.setCellValueFactory(new PropertyValueFactory<Income, Long>("id"));
         incomeColumnName.setCellValueFactory(new PropertyValueFactory<Income, String>("name"));
         incomeColumnPrice.setCellValueFactory(new PropertyValueFactory<Income, Integer>("price"));
 
-        liabilitiesTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
+        liabilitiesTableView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         liabilitiesColumnId.setCellValueFactory(new PropertyValueFactory<Liabilities, Long>("id"));
         liabilitiesColumnName.setCellValueFactory(new PropertyValueFactory<Liabilities, String>("name"));
         liabilitiesColumnPrice.setCellValueFactory(new PropertyValueFactory<Liabilities, Integer>("price"));
