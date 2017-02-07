@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.czarijb.controllers.EventDialogController">
+    <children>
+                            <!-- Блок Активы -->
+
+        <RadioButton fx:id="assetsBlock" layoutX="5.0" layoutY="169.0" mnemonicParsing="false" text="Активы" onAction="#assetsBlockIsSelected"/>
+
+        <Label fx:id="assetsVolumeLabel" layoutX="6.0" layoutY="224.0" prefWidth="290.0" text="Введите количество актива" />
+        <Label fx:id="assetsPriceLabel" layoutX="6.0" layoutY="258.0" prefWidth="290.0" text="Введите стоимость актива" />
+        <Label fx:id="assetsNameLabel" layoutX="6.0" layoutY="192.0" prefWidth="290.0" text="Введите название актива" />
+
+        <TextField fx:id="assetsNameTextField" editable="false" layoutX="310.0" layoutY="187.0" prefHeight="26.0" prefWidth="290.0" text="введите название актива" />
+        <TextField fx:id="assetsVolumeTextField" editable="false" layoutX="310.0" layoutY="219.0" prefHeight="26.0" prefWidth="290.0" text="введите количество актива" />
+        <TextField fx:id="assetsPriceTextField" editable="false" layoutX="310.0" layoutY="253.0" prefHeight="26.0" prefWidth="290.0" text="введите стоимость актива" />
+
+                            <!-- Блок Расходы -->
+
+        <RadioButton fx:id="expensesBlock" layoutX="1.0" layoutY="82.0" mnemonicParsing="false" text="Расходы" onAction="#expensesBlockIsSelected"/>
+
+        <Label fx:id="expensesNameLabel" layoutX="10.0" layoutY="107.0" prefWidth="290.0" text="Введите название источника расходов" />
+        <Label fx:id="expensesPriceLabel" layoutX="7.0" layoutY="141.0" prefWidth="290.0" text="Введите стоимость источника расходов" />
+
+        <TextField fx:id="expensesNameTextField" editable="false" layoutX="310.0" layoutY="102.0" prefHeight="26.0" prefWidth="290.0" text="Введите название источника расходов" />
+        <TextField fx:id="expensesPriceTextField" editable="false" layoutX="310.0" layoutY="136.0" prefHeight="26.0" prefWidth="290.0" text="Введите стоимость источника расходов" />
+
+                            <!-- Блок Доходы -->
+
+        <RadioButton fx:id="incomeBlock" layoutY="5.0" mnemonicParsing="false" text="Доходы" onAction="#incomeBlockIsSelected" />
+
+        <Label fx:id="incomeNameLabel" layoutX="6.0" layoutY="23.0" prefHeight="16.0" prefWidth="290.0" text="Введите название источника дохода" />
+        <Label fx:id="incomePriceLabel" layoutX="3.0" layoutY="55.0" prefHeight="16.0" prefWidth="290.0" text="Введите стоимость источника дохода" />
+
+        <TextField fx:id="incomeNameTextField" editable="false" layoutX="310.0" layoutY="18.0" prefHeight="26.0" prefWidth="290.0" text="Введите название источника дохода" />
+        <TextField fx:id="incomePriceTextField" editable="false" layoutX="310.0" layoutY="50.0" prefHeight="26.0" prefWidth="290.0" text="Введите стоимость источника дохода" />
+
+                            <!-- Блок Пассивы -->
+
+        <RadioButton fx:id="liabilitiesBlock" layoutY="287.0" mnemonicParsing="false" text="Пассивы" onAction="#liabilitiesBlockIsSelected" />
+
+        <Label fx:id="liabilitiesNameLabel" layoutX="6.0" layoutY="310.0" prefWidth="290.0" text="Введите название пассива" />
+        <Label fx:id="liabilitiesPriceLabel" layoutX="5.0" layoutY="347.0" prefWidth="290.0" text="Введите стоимость пассива" />
+
+        <TextField fx:id="liabilitiesNameTextField" editable="false" layoutX="310.0" layoutY="305.0" prefHeight="26.0" prefWidth="290.0" text="Введите название пассива" />
+        <TextField fx:id="liabilitiesPriceTextField" editable="false" layoutX="310.0" layoutY="342.0" prefHeight="26.0" prefWidth="290.0" text="Введите стоимость пассива" />
+
+
+        <Button fx:id="createCategory" layoutX="1.0" layoutY="373.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="200.0" text="Добавить" onAction="#eventButtonAction" />
+        <Button fx:id="updateCategory" layoutX="200.0" layoutY="373.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="200.0" text="Обновить" onAction="#eventButtonAction" />
+        <Button fx:id="deleteCategory" layoutX="400.0" layoutY="373.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="200.0" text="Удалить" onAction="#eventButtonAction" />
+
+    </children>
+</AnchorPane>
