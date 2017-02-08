@@ -27,8 +27,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
+
 
 
 public class MainWindowController {
@@ -40,7 +40,6 @@ public class MainWindowController {
     private LiabilitiesDAOImpl liabilitiesDAO = DAOFactory.getInstance().getLiabilitiesDao();
 
     private Stage mainStage;
-
 
     @FXML private Label expensesSumLabel;
     @FXML private Label incomeSumLabel;
@@ -172,6 +171,7 @@ public class MainWindowController {
     }
 
     private int expensesSumm(){
+        log.debug("cosider expenses");
         int a = 0;
         for (Expenses expenses : expensesDAO.getExpensesList()){
             a += expenses.getPrice();
@@ -181,6 +181,7 @@ public class MainWindowController {
     }
 
     private int incomeSumm(){
+        log.debug("consider income");
         int a = 0;
         for (Income income : incomeDAO.getIncomeList()){
             a += income.getPrice();
@@ -191,6 +192,7 @@ public class MainWindowController {
     }
 
     public void initPieChartData(){
+        log.debug("initialize piechart");
         ObservableList<PieChart.Data> list = FXCollections.observableArrayList(
                 new PieChart.Data("Доходы", incomeSumm()),
                 new PieChart.Data("Расходы", expensesSumm())
@@ -199,6 +201,7 @@ public class MainWindowController {
     }
 
     private void cashFlow(){
+        log.debug("consider cashflow");
         cashFlowLabel.setText("    Ваш ежемесячный денежный поток : " + (incomeSumm() - expensesSumm()));
     }
 
@@ -224,6 +227,7 @@ public class MainWindowController {
     }
 
     public void closeAllThred(){
+        log.debug("closing all thread of programm");
         DAOFactory factory = DAOFactory.getInstance();
         factory.closeSession();
     }

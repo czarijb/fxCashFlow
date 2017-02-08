@@ -228,6 +228,7 @@ public class EventDialogController {
             assets = new Assets(assetsNameTextField.getText(), Integer.parseInt(assetsVolumeTextField.getText()),
                     Integer.parseInt(assetsPriceTextField.getText()));
             assetsDAO.addAssets(assets);
+            log.debug("create new assets");
         }
     }
 
@@ -236,6 +237,7 @@ public class EventDialogController {
             ExpensesDAOImpl expensesDAO = DAOFactory.getInstance().getExpensesDao();
             expenses = new Expenses(expensesNameTextField.getText(), Integer.parseInt(expensesPriceTextField.getText()));
             expensesDAO.addExpenses(expenses);
+            log.debug("create new expenses");
         }
     }
 
@@ -244,6 +246,7 @@ public class EventDialogController {
             IncomeDAOImpl incomeDAO = DAOFactory.getInstance().getIncomeDao();
             income = new Income(incomeNameTextField.getText(), Integer.parseInt(incomePriceTextField.getText()));
             incomeDAO.addIncome(income);
+            log.debug("create new income");
         }
     }
 
@@ -252,6 +255,7 @@ public class EventDialogController {
             LiabilitiesDAOImpl liabilitiesDAO = DAOFactory.getInstance().getLiabilitiesDao();
             liabilities = new Liabilities(liabilitiesNameTextField.getText(), Integer.parseInt(liabilitiesPriceTextField.getText()));
             liabilitiesDAO.addLiabilities(liabilities);
+            log.debug("create new liabilities");
         }
     }
 
@@ -263,6 +267,7 @@ public class EventDialogController {
                     this.assets = assets;
             }
             assetsDAO.updateAssets(assets);
+            log.debug("update assets");
         }
     }
 
@@ -275,6 +280,7 @@ public class EventDialogController {
                 }
             }
             expensesDAO.updateExpenses(expenses);
+            log.debug("update expenses");
         }
     }
 
@@ -287,6 +293,7 @@ public class EventDialogController {
                 }
             }
             incomeDAO.updateIncome(income);
+            log.debug("update income");
         }
     }
 
@@ -299,6 +306,7 @@ public class EventDialogController {
                 }
             }
             liabilitiesDAO.updateLiabilities(liabilities);
+            log.debug("update liabilities");
         }
     }
 
@@ -310,6 +318,7 @@ public class EventDialogController {
                     this.assets = assets;
             }
             assetsDAO.deleteAssets(assets);
+            log.debug("delete assets");
         }
     }
 
@@ -322,6 +331,7 @@ public class EventDialogController {
                 }
             }
             expensesDAO.deleteExpenses(expenses);
+            log.debug("delete expenses");
         }
     }
 
@@ -334,6 +344,7 @@ public class EventDialogController {
                 }
             }
             incomeDAO.deleteIncome(income);
+            log.debug("delete income");
         }
     }
 
@@ -346,6 +357,7 @@ public class EventDialogController {
                 }
             }
             liabilitiesDAO.deleteLiabilities(liabilities);
+            log.debug("delete liabilities");
         }
     }
 
@@ -389,6 +401,7 @@ public class EventDialogController {
 
 
     private final boolean checkAssetsTextFieldNotEmpty(){
+        log.debug("check empty assets textfield ");
         boolean a = false;
         if (checkingEmptyTextField(assetsNameTextField) && checkingEmptyTextField(assetsVolumeTextField)
                 && checkingEmptyTextField(assetsPriceTextField)) a = true;
@@ -396,6 +409,7 @@ public class EventDialogController {
     }
 
     private final boolean checkExpensesTextFieldNotEmpty(){
+        log.debug("check empty expenses textfield ");
         boolean a = false;
         if (checkingEmptyTextField(expensesNameTextField)
                 && checkingEmptyTextField(expensesPriceTextField)) a = true;
@@ -403,6 +417,7 @@ public class EventDialogController {
     }
 
     private final boolean checkIncomeTextFieldNotEmpty(){
+        log.debug("check empty income textfield ");
         boolean a = false;
         if (checkingEmptyTextField(incomeNameTextField)
                 && checkingEmptyTextField(incomePriceTextField)) a = true;
@@ -410,6 +425,7 @@ public class EventDialogController {
     }
 
     private final boolean checkLiabilitiesTextFieldNotEmpty(){
+        log.debug("check empty liabilities textfield ");
         boolean a = false;
         if (checkingEmptyTextField(liabilitiesNameTextField)
                 && checkingEmptyTextField(liabilitiesPriceTextField)) a = true;
@@ -417,6 +433,7 @@ public class EventDialogController {
     }
 
     private final boolean checkIntInAssetsTextField(){
+        log.debug("check entering integer's type in assets integer's type textfield ");
         boolean a = false;
         if(checkingIntInTextField(assetsVolumeTextField) && checkingIntInTextField(assetsPriceTextField))
             a = true;
@@ -424,6 +441,7 @@ public class EventDialogController {
     }
 
     private final boolean checkIntInExpensesTextField(){
+        log.debug("check entering integer's type in expenses integer's type textfield ");
         boolean a = false;
         if(checkingIntInTextField(expensesPriceTextField))
             a = true;
@@ -431,6 +449,7 @@ public class EventDialogController {
     }
 
     private final boolean checkIntInIncomeTextField(){
+        log.debug("check entering integer's type in income integer's type textfield ");
         boolean a = false;
         if(checkingIntInTextField(incomePriceTextField))
             a = true;
@@ -438,6 +457,7 @@ public class EventDialogController {
     }
 
     private final boolean checkIntInLiabilitiesTextField(){
+        log.debug("check entering integer's type in liabilities integer's type textfield ");
         boolean a = false;
         if(checkingIntInTextField(liabilitiesPriceTextField))
             a = true;

@@ -6,22 +6,28 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class AssetsDAOImpl implements AssetsDAO {
 
     private ObservableList<Assets> assetsList = FXCollections.observableArrayList();
+    private static final Logger log = LoggerFactory.getLogger(AssetsDAOImpl.class);
     private Session session;
 
     @Override
     public void addAssets(Assets assets) {
         assetsList.add(assets);
+        log.debug("add new assets in assetsList");
         try {
+            log.debug("try to insert new assets in DB");
             session.beginTransaction();
             session.save(assets);
             session.getTransaction().commit();
+            log.debug("insert new assets in DB");
         }catch (Exception e){
+            log.debug("can't adding new assets in DB");
             session.getTransaction().rollback();
             e.printStackTrace();
         }
@@ -43,11 +49,15 @@ public class AssetsDAOImpl implements AssetsDAO {
     public void deleteAssets(Assets assets) {
 
         assetsList.remove(assets);
+        log.debug("delete assets in assetsList");
         try {
+            log.debug("try to delete assets in DB");
             session.beginTransaction();
             session.delete(assets);
             session.getTransaction().commit();
+            log.debug("delete assets in DB");
         }catch (Exception e){
+            log.debug("can't deleting assets in DB");
             session.getTransaction().rollback();
             e.printStackTrace();
         }
@@ -60,11 +70,14 @@ public class AssetsDAOImpl implements AssetsDAO {
     public void fillAssetsTestData(){
 
         try {
+            log.debug("try get list of assets from DB");
             session.beginTransaction();
             Criteria criteria = session.createCriteria(Assets.class);
             this.assetsList.addAll(criteria.list());
             session.getTransaction().commit();
+            log.debug("get all assets from DB");
         }catch (Exception e){
+            log.debug("cant't get all assets from DB");
             e.printStackTrace();
         }
     }
